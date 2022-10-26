@@ -49,7 +49,7 @@ abstract public class BaseWebResourceResponseGenerator implements WebResourceRes
 
         InputStream bis = resource.getInputStream();
         if(bis != null) {
-            return new WebResourceResponse(urlMime, charset, bis);
+            return createWebResourceResponse(urlMime, charset, bis);
         }
         byte[] resourceBytes = resource.getOriginBytes();
         if (resourceBytes == null || resourceBytes.length < 0) {

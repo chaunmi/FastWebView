@@ -3,6 +3,7 @@ package com.ryan.github.webview.sample;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -11,6 +12,7 @@ import android.view.KeyEvent;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import android.webkit.JavascriptInterface;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
@@ -52,7 +54,7 @@ public class WebViewActivity extends Activity {
     private long initStartTime;
     private long startTime;
 
-    public static final String url = "https://www.baidu.com/";  //"http://192.168.10.37:5500/h5/dist/index.html#/index"; //  "https://xw.qq.com/"; // "https://github.com/Ryan-Shz";
+    public static final String url = "https://192.168.0.132/";  //"http://192.168.10.37:5500/h5/dist/index.html#/index"; //  "https://xw.qq.com/"; // "https://github.com/Ryan-Shz";
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface"})
     @Override
@@ -247,6 +249,12 @@ public class WebViewActivity extends Activity {
         public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
             super.onReceivedHttpError(view, request, errorResponse);
             LogUtils.e(" onReceivedHttpError ");
+        }
+
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            super.onReceivedSslError(view, handler, error);
+            LogUtils.e(" onReceivedSslError " + error.toString());
         }
     }
 
