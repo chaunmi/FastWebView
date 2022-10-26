@@ -55,8 +55,8 @@ public class OkHttpClientProvider {
                 .hostnameVerifier(new HttpsUtils.UnSafeHostnameVerifier())
                 .sslSocketFactory(params.sSLSocketFactory, params.trustManager)
                 // auto redirects is not allowed, bc we need to notify webview to do some internal processing.
-             //   .followSslRedirects(false)
-             //   .followRedirects(false)
+                .followSslRedirects(false)
+                .followRedirects(false)
                 .build();
     }
 
