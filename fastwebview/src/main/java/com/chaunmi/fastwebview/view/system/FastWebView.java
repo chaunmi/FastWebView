@@ -32,11 +32,11 @@ public class FastWebView extends WebView implements FastOpenApi {
     private boolean mRecycled = false;
 
     public FastWebView(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public FastWebView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public FastWebView(Context context, AttributeSet attrs, int defStyleAttr) {

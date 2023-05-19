@@ -29,11 +29,11 @@ public class FastX5WebView extends WebView implements FastOpenApi {
 
 
     public FastX5WebView(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public FastX5WebView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public FastX5WebView(Context context, AttributeSet attrs, int defStyleAttr) {
